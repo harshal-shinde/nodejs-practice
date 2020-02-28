@@ -33,3 +33,8 @@ assert.deepStrictEqual({ [symbol1] : 1}, {[symbol1] : 1});
 assert.deepStrictEqual({ [symbol1]: 1 }, { [symbol2]: 1 });
 
 const weakMap1 = new WeakMap();
+const weakMap2 = new WeakMap([[{}, {}]]);
+const weakMap3 = new WeakMap();
+weakMap3.unequal = true;
+
+assert.deepStrictEqual(weakMap1, weakMap2);
