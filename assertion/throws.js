@@ -36,6 +36,7 @@ assert.throws(
     info: {
       nested: true,
       baz: "text"
-    }
+    },
+    
   }
 );
