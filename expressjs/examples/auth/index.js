@@ -42,5 +42,29 @@ hash({password : "foobar"}, (err, pass, salt, hash) =>{
 const authenticate = (name, pass, fn) => {
   if(!module.parent) console.log("authenticating %s %s", name, pass);
   let user = users[name];
-  
+  if(!user) return fn(new Error("cannot find users"));
+
+  hash({password :pass, salt : salt}, (err, pass , salt, hash) => {
+    if(err) return fn(err);
+    if(hash === user.hash) return fn(null, user);
+    fn(new Error("Inavlid password"));
+  });
 };
+
+const restrict = (req, res, next) => {
+  if(req.session.user) {
+    next();
+  } else {
+    req.session.error = "Access denied";
+    res.redirect("/");
+  }
+};
+
+app.get("/",(req,res) => {
+  res.redirect("/login");
+});
+
+
+app.get("/restricted", (req, res)=> {
+  res.send("Wahoo! restricted ar")
+});

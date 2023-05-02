@@ -1,18 +1,18 @@
 const members = [
   {
+    id: 1,
     name : "Harshal Shinde",
-    role : "Software Developer",
-    experience : "8 Years"
+    role : "Software Developer"
   },
   {
+    id: 2,
     name : "Shubham Halle",
-    role : "Software Developer",
-    experience : "3 Years"
+    role : "Software Developer"
   },
   {
+    id: 3,
     name : "Shashikan Gurav",
-    role : "Lead",
-    experience : "12 Years"
+    role : "Lead"
   }
 ];
 
