@@ -1,0 +1,31 @@
+.glow {
+  position: absolute;
+  width: 622px;
+  height: 622px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 1px solid red;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 5px;
+  background-color: aqua;
+  display: inline-block;
+}
+
+
+.progress-bar-wrapper{
+  position: absolute;
+  left: 50%;
+  margin-left: -105px;
+  bottom: 23px;
+}
+
+  .progress-bar-logo {
+    position: relative;
+    height: 622px;
+  }
