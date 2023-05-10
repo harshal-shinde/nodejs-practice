@@ -29,7 +29,7 @@ router.post('/', async(req, res)=> {
   const token = jwt.sign({
     id: user._id,
     roles: user.roles,
-  }, "jwtPraivetKey", {expiresIn:'15m'});
+  }, "jwtPrivateKey", {expiresIn:'15m'});
 
   res.send({
     ok:true,

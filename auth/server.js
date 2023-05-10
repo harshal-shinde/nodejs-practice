@@ -14,7 +14,7 @@ const messageRouter = require('./routes/messages');
 
 //Setup all the routes
 app.use('/api/messages', messageRouter);
-app.use('api/auth', authRouter);
+app.use('/api/auth', authRouter);
 
 //Start the server
 app.listen(port, ()=> {
