@@ -7,9 +7,18 @@ const PORT = 3001;
 app.use(express.static("public"));
 app.use('/images', express.static("images"));
 
+//app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
 app.get('/',(req, res)=>{
   res.json(data)
 });
+
+//Using express json
+app.post('/item', (request, response)=>{
+  console.log(request.body);
+  response.send(request.body);
+})
 
 //GET with next
 app.get('/next',(req, res, next)=>{
@@ -45,7 +54,8 @@ app.delete('/delete',(req, res)=>{
 
 app.route('/class')
 .get((req, res)=>{
-  res.send('Retrieve class information');
+  // res.send('Retrieve class information');
+  throw new Error();
 })
 .post((req, res)=>{
   res.send('Create class information');
@@ -67,6 +77,11 @@ app.route('/class')
 //   res.send('Update class information');
 // });
 
+
+app.use((err, req, res, next)=>{
+  console.error(err.stack);
+  res.status(500).send("Something is broken");
+})
 
 app.listen(PORT, ()=>{
   console.info(`Nodejs server up successfully on port ${PORT}`)
